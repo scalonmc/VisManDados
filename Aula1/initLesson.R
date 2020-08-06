@@ -1,3 +1,3 @@
 
 # Read in data
-dados <- read.csv((file.path(find.package("swirl"), "Aula1", "dados.csv"))
+dados <- read.csv((file.path(find.package("swirl"), "scalonmc/Aula1/Aula1", "dados.csv"))
