@@ -4,7 +4,7 @@
   Author: Marina C Scalon
   Type: Standard
   Organization: UFPR PPG Ecologia e Conservacao
-  Version: 2.4.5
+  Version: 1.0
   
 - Class: text
   Output: Bem vindos ao curso de Visualizacao e Manipulacao de Dados no R! Infezilmente esse formato nao permite acentuacao, entao vamos ter que lidar com isso...
