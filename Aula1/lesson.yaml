@@ -22,7 +22,7 @@
   Output: Nessa aula vamos usar apenas as funcoes basicas do R (ou seja, nao sera necessario a instalacao de nenhum pacote agora!). 
 
 - Class: cmd_question
-  Output: Tambem vamos usar um conjunto de dados pessoais que ja estao inseridos aqui chamado... *suspense* dados (bem original, eu sei...). Para comecar a olhar para os dados, digite ls(dados) para listar as variavies 
+  Output: Tambem vamos usar um conjunto de dados pessoais que ja estao inseridos aqui chamado... suspense... dados (bem original, eu sei...). Para comecar a olhar para os dados, digite ls(dados) para listar as variavies 
   CorrectAnswer: ls(dados)
   AnswerTests: omnitest(correctExpr='ls(dados)')
   Hint: Use ls(dados) para ver a lista de variaveis do dataset.
