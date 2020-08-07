@@ -1,2 +1,2 @@
-# Read in data
-dados <- read.csv("https://github.com/scalonmc/Aula1/blob/master/Aula1/dados.csv")
+require(RCurl)
+dados <- read.csv(text = getURL("https://raw.githubusercontent.com/scalonmc/Aula1/master/Aula1/dados.csv"))
