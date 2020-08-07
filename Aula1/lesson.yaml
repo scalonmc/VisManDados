@@ -1,25 +1,124 @@
-- Class: meta
-  Course: VisManDados
-  Lesson: Aula1
-  Author: Marina Scalon
+-- Class: meta
+  Course: Visualizacao e Manipulacao de Dados - Marina
+  Lesson: Aula 1
+  Author: Marina C. Scalon
   Type: Standard
-  Organization: your organization's name goes here
+  Organization: UFPR - PPG Ecologia e Conservacao
   Version: 2.4.5
+  
+- Class: text
+  Output: Bem vindos ao curso de Visualizacao e Manipulacao de Dados no R! Infezilmente esse formato nao permite acentuacao, entao vamos ter que lidar com isso...
+  
+- Class: text
+  Output: Novidade pra voce? Basta digitar bye() para sair, skip() para pular alguma pergunta, play() para usar o console e experimentar sem a interferencia do programa e info() para mostrar um menu de ajuda.
+  
+- Class: text
+  Output: Em caso de alguma duvida e nao conseguir prosseguir com a Aula 1, entre em contato no forum de discussao criado ou por email particular lembrando que essa e uma experiencia nova pra todos nos! =)
 
 - Class: text
-  Output: Bem vindos ao curso de Visualizacao e Manipulacao de Dados no R! Infelizmente o swirl nao permite acentuacao, entao peco que ignorem esses erros...
-  
+  Output: Muito bem! Agora vamos comecar a primeira parte da aula, que vai ensinar como olhar os dados de uma planilha e entender os formatos dos objetos, tipos de variaveis, dados faltantes ou falhas nos dados. Note que essa e uma etapa bem importante para todo o resto do processo! 
+
 - Class: text
-  Output: Novidade pra vc? Basta digitar bye() para sair, skip() para pular alguma pergunta, play() para usar o console e experimentar sem a interferencia do programa e info() para mostrar um menu de ajuda.
-  
+  Output: Nessa aula vamos usar apenas as funcoes basicas do R (ou seja, nao sera necessario a instalacao de nenhum pacote agora!). 
+
+- Class: cmd_question
+  Output: Tambem vamos usar um conjunto de dados pessoais que ja estao inseridos aqui chamado... *suspense* dados (bem original, eu sei...). Para comecar a olhar para os dados, digite ls(dados) para listar as variavies 
+  CorrectAnswer: ls(dados)
+  AnswerTests: omnitest(correctExpr='ls(dados)')
+  Hint: Use ls(dados) para ver a lista de variaveis do dataset.
+
 - Class: text
-  Output: Em caso de alguma duvida e nao conseguir prosseguir com a Aula 1, entre em contato no forum de discussao criado ou por email particular lembrando que essa sera uma experiencia nova pra todos nos! =)
-  
+  Output: Agora perceba que a funcao ls() lista variaveis e faz isso em ordem alfabetica SEMPRE. O R trabalha sempre com as variaveis ou fatores em ordem alfabetica! Isso e importante principalmente na hora de gerar graficos.
+
+- Class: cmd_question
+  Output: Outro comando util para entender os dados que estamos trabalhando e a funcao head() que mostra o comeco dos dados, sendo util quendo trabalhamos com datasets muito grandes. Veja como funciona
+  CorrectAnswer: head(dados)
+  AnswerTests: omnitest(correctExpr='head(dados)')
+  Hint: head(dados) vai mostrar as primeiras linhas do dataset.
+
+- Class: cmd_question
+  Output: A funcao head() sempre vai mostras as primeiras 6 linhas. Voce pode alterar escolhendo quantas linhas vc quer que sejam mostradas. Para x linhas. use head(dados, x). Agora vamos ver as primeiras 10 linhas dos nossos dados
+  CorrectAnswer: head(dados, 10)
+  AnswerTests: omnitest(correctExpr='head(dados, 10)')
+  Hint: head(dados, 10) vai mostrar as primeiras 10 linhas.
+
 - Class: text
-  Output: Vamos começar testando os tipos de perguntas e respostas que esse programa permite para todos estarmos mais familiarizados:
+  Output: A mesma coisa pode ser aplicada para a funcao tail() que mostra as ultimas linhas do dataset.
+
+- Class: cmd_question
+  Output: Outra funcao muito utilizada para olhar a estrutura geral dos dados e summary(). Ela mostra os valores faltantes (NAs) e a distribuicao das variaveis (media, minimo e maximo valores para variaveis numericas). Vamos tentar?
+  CorrectAnswer: summary(dados)
+  AnswerTests: omnitest(correctExpr='summary(dados)')
+  Hint: Digite summary(dados) para verificar a natureza de cada variavel, distribuicao e dados faltantes.
+
+- Class: text
+  Output: Para variaveis categoricas ('factor'), summary() mostra o numero de vezes que esse valor ou nivel aparece. 
+
+- Class: cmd_question
+  Output: Quando existem muitos niveis, a funcao summary nao exibe todos fatores (veja o caso de especie no dataset), incluindo a categoria (Other). Para ver essa variavel com detalhe, podemos usar a funcao table(dados$especie).
+  CorrectAnswer: table(dados$especie)
+  AnswerTests: omnitest(correctExpr='table(dados$especie)')
+  Hint: table(dados$especie) vai mostrar o numero de vezes cada especie aparece no dataset.
   
 - Class: cmd_question
-  Output: Tipo comando: voces terao que digitar aqui alguma operacao que vai ser pedida. Digite 2+2
-  CorrectAnswer: 2 + 2
-  AnswerTests: omnitest(correctExpr='2 + 2')
-  Hint: Apenas digite 2 + 2 e aperte enter.
+  Output: Agora vamos checar a classe das variaveis, a dimensao e a estrutura dos dados utilizando str(dados). Essa funcao e a mais completa!
+  CorrectAnswer: str(dados)
+  AnswerTests: omnitest(correctExpr='str(dados)')
+  Hint: Use str(dados) para verificar a estrutura dos dados.
+
+- Class: text
+  Output: Perceba que a funcao str() combina varias funcoes. Na primeira linha, mostra que dados e um 'data.frame' que tem 129 observacoes e and 13 variaveis. Mostra tambem o nome e a classe de cada variavel e a previa do conteudo de cada uma (como em head()).
+
+- Class: text
+  Output: str() e a funcao recomendada para sempre comecar. Com ela voce consegue entender a estrutura geral de qualquer conjunto de dados e ate de funcoes! Guarde essa informacao pra vida!
+
+- Class: text
+  Output: Agora, vamos testar na pratica porque temos que entender a classe das variaveis para fazer graficos!
+
+- Class: cmd_question
+  Output: Suponha que voce queira verificar visualmente a variacao da quantidade de nitrogenio foliar (N) entre os individuos amostrados (individuo). Voce pode utilizar a funcao plot(N~individuo, data=dados) so para comecar. 
+  CorrectAnswer: plot(N~individuo, data=dados)
+  AnswerTests: omnitest(correctExpr='plot(N~individuo, data=dados)')
+  Hint: Digite plot(N~individuo, data=dados).
+  
+- Class: text
+  Output: Perceba que a variavel "individuo" esta classificada como "integer" (ou seja, numeros inteiros). Por isso, o R entende individuo como uma variavel continua e nao categorica.
+  
+- Class: cmd_question
+  Output: Mas nem tudo esta perdido! Voce pode manipular artificialmente a classe dos objetos, utilizando funcoes as.numeric, as.integer, as.factor e as.character. Repita o grafico acima, transformando agora individuo em um objeto de classe fator utilizando as.factor(individuo). 
+  CorrectAnswer: plot(N~as.factor(individuo), data=dados)
+  AnswerTests: omnitest(correctExpr='plot(N~as.factor(individuo), data=dados)')
+  Hint: Digite plot(N~as.factor(individuo), data=dados). 
+  
+- Class: text
+  Output: Espero que a diferenca tenha ficado clara! O R agora entende "individuo" como uma variavel categorica. 
+
+- Class: text
+  Output: Lembra dessa caracteristica muitas vezes inconveniente do R de colocar tudo em ordem alfabetica? Outra caracteristica das variaveis do tipo "fator" e que elas sao ordenaveis, ou seja, podemos colocar na ordem que queremos. 
+  
+- Class: cmd_question
+  Output: Demostrando na pratica, vamos plotar a quantidade de fosforo foliar (P) em funcao da vegetacao em que a planta esta (Tratamento). 
+  CorrectAnswer: plot(P~Tratamento, data=dados)
+  AnswerTests: omnitest(correctExpr='plot(P~Tratamento, data=dados)')
+  Hint: Digite plot(P~Tratamento, data=dados).
+  
+- Class: text
+  Output: Muitas vezes queremos alterar a ordem das variaveis no eixo x para ter mais sentido ecologicamente. Por exemplo, pode ser que faca mais sentido um gradiente de abertura de dossel que va de floresta, savana e campo. 
+  
+- Class: cmd_question
+  Output: Vamos usar a funcao ordered() para mudar a ordem dos fatores especificando os niveis com 'level'. Digite dados$Tratamento <- ordered(dados$Tratamento, levels = c("Floresta", "Savana", "Campo"))
+  CorrectAnswer: dados$Tratamento <- ordered(dados$Tratamento, levels = c("Floresta", "Savana", "Campo"))
+  AnswerTests: omnitest(correctExpr='dados$Tratamento <- ordered(dados$Tratamento, levels = c("Floresta", "Savana", "Campo"))')
+  Hint: Digite dados$Tratamento <- ordered(dados$Tratamento, levels = c("Floresta", "Savana", "Campo")).
+
+- Class: text
+  Output: Caso voce nao tenha entendido a sintaxe do comando acima, sugiro que faca a Aula 0  disponivel na pasta da disciplina!
+  
+- Class: cmd_question
+  Output: Agora vamos plotar novamente a quantidade de fosforo foliar (P) em funcao da vegetacao em que a planta esta (Tratamento), com o fator Tratamento ordenado de acordo com nossa escolha. 
+  CorrectAnswer: plot(P~Tratamento, data=dados)
+  AnswerTests: omnitest(correctExpr='plot(P~Tratamento, data=dados)')
+  Hint: Digite plot(P~Tratamento, data=dados).
+
+- Class: text
+  Output: Note a ordem dos fatores no eixo x, que agora seguem os valores que voce determinou! 
