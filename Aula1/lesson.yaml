@@ -112,7 +112,7 @@
   Hint: Digite dados$Tratamento <- ordered(dados$Tratamento, levels = c("Floresta", "Savana", "Campo")).
 
 - Class: text
-  Output: Caso voce nao tenha entendido a sintaxe do comando acima, sugiro que faca a Aula 0  disponivel na pasta da disciplina!
+  Output: Caso voce nao tenha entendido a sintaxe do comando acima, sugiro que faca a Aula do R básico disponivel na pasta da disciplina!
   
 - Class: cmd_question
   Output: Agora vamos plotar novamente a quantidade de fosforo foliar (P) em funcao da vegetacao em que a planta esta (Tratamento), com o fator Tratamento ordenado de acordo com nossa escolha. 
@@ -122,3 +122,6 @@
 
 - Class: text
   Output: Note a ordem dos fatores no eixo x, que agora seguem os valores que voce determinou! 
+  
+  - Class: text
+  Output: Finalizamos essa aula! Caso tenha alguma duvida, pergunte diretamente no forum de discusao ou anote sua duvida para perguntar durante nosso encontro! Ate breve!
