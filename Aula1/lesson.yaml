@@ -97,7 +97,13 @@
   Output: Lembra dessa caracteristica muitas vezes inconveniente do R de colocar tudo em ordem alfabetica? Outra caracteristica das variaveis do tipo "fator" e que elas sao ordenaveis, ou seja, podemos colocar na ordem que queremos. 
   
 - Class: cmd_question
-  Output: Demostrando na pratica, vamos plotar a quantidade de fosforo foliar (P) em funcao da vegetacao em que a planta esta (Tratamento). 
+  Output: Agora vamos plotar a quantidade de fosforo foliar (P) em funcao da vegetacao em que a planta esta (Tratamento). PAra isso, devemos transformar a variável "Tratamento"em um fator, como fizemos com "individuo"
+  CorrectAnswer: dados$Tratamento <- as.factor(dados$Tratamento)
+  AnswerTests: omnitest(correctExpr='dados$Tratamento <- as.factor(dados$Tratamento)')
+  Hint: Digite dados$Tratamento <- as.factor(dados$Tratamento).
+  
+- Class: cmd_question
+  Output: Agora vamos plotar a quantidade de fosforo foliar (P) em funcao da vegetacao em que a planta esta (Tratamento), com o fator Tratamento. 
   CorrectAnswer: plot(P~Tratamento, data=dados)
   AnswerTests: omnitest(correctExpr='plot(P~Tratamento, data=dados)')
   Hint: Digite plot(P~Tratamento, data=dados).
