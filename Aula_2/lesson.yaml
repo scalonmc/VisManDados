@@ -10,13 +10,13 @@
   Output: Agora ja estamos mais acostumados om o swirl! Vamos nessa aula aprender sobre manipulacao de dados utilizando o pacote tidyverse.
   
 - Class: cmd_question
-  Output: Tambem vamos usar o mesmo conjunto de dados da aula anterior, que já deve estar carregado pra voce. Confira novamente as variaveis desse conjunto de dados com o comando ld(dados) 
+  Output: Tambem vamos usar o mesmo conjunto de dados da aula anterior, que ja deve estar carregado pra voce. Confira novamente as variaveis desse conjunto de dados com o comando ld(dados) 
   CorrectAnswer: ls(dados)
   AnswerTests: omnitest(correctExpr='ls(dados)')
   Hint: Use ls(dados) para ver a lista de variaveis do dataset.
 
 - Class: cmd_question
-  Output: Nessa aula será nescessario instalarmos e carregarmos o pacote tidyverse. Carregue o pacote utilizando o comando library(tidyverse)
+  Output: Nessa aula sera nescessario instalarmos e carregarmos o pacote tidyverse. Carregue o pacote utilizando o comando library(tidyverse)
   CorrectAnswer: library(tidyverse)
   AnswerTests: omnitest(correctExpr='library(tidyverse)')
   Hint: library(tidyverse) vai carregar o pacote, permitindo o uso de suas funcoes. Caso ele nao esteja instalado na sua biblioteca, use install.packages("tidyverse") para instala-lo.
@@ -26,15 +26,15 @@
 
 - Class: cmd_question
   Output: Uma funcao do dplyr bem util e a funcao select(). Com ela voce pode escolher variaveis de interesse para determinada analise ou grafico. Vamos escolher, utilizando a funcao *select*, apenas as variaveis categoricas do nosso conjunto de dados em um novo dataset chamado *categoricas*.
-  CorrectAnswer: categoricas <- select(dados, Tratamento, Espécie, Grupo)
-  AnswerTests: omnitest(correctExpr='categoricas <- select(dados, Tratamento, Espécie, Grupo)')
-  Hint: categoricas <- select(dados, Tratamento, Espécie, Grupo) vai criar um conjunto de dados apenas com as variaveis categoricas.
+  CorrectAnswer: categoricas <- select(dados, Tratamento, EspÃ©cie, Grupo)
+  AnswerTests: omnitest(correctExpr='categoricas <- select(dados, Tratamento, EspÃ©cie, Grupo)')
+  Hint: categoricas <- select(dados, Tratamento, EspÃ©cie, Grupo) vai criar um conjunto de dados apenas com as variaveis categoricas.
 
 - Class: cmd_question
   Output: A funcao select() tambem nos permite eliminar determinadas variaveis. Para isso, basta listar as variaveis indesejadas com o sinal - na frente. Por exemplo, para eliminar variaveis que nao representam muito, como Amostra e Individuo, vamos criar um novo dataset denominado *clean* sem essas variaveis. 
-  CorrectAnswer: clean <- select(dados, -Amostra, -Indivíduo)
-  AnswerTests: omnitest(correctExpr='clean <- select(dados, -Amostra, -Indivíduo)')
-  Hint: Digite clean <- select(dados, -Amostra, -Indivíduo) para criar um dataset sem as variáveis Amostra e Individuo.
+  CorrectAnswer: clean <- select(dados, -Amostra, -IndivÃ­duo)
+  AnswerTests: omnitest(correctExpr='clean <- select(dados, -Amostra, -IndivÃ­duo)')
+  Hint: Digite clean <- select(dados, -Amostra, -IndivÃ­duo) para criar um dataset sem as variÃ¡veis Amostra e Individuo.
   
 - Class: cmd_question
   Output: Voce tambem pode usar uma condicao com a funcao select_if() para determinar uma selecao especifica de algumas variaveis. Por exemplo, vamos criar um novo dataset denominado *numericas* que selecione apenas as variaveis numericas usando o condicional select_if para apenas as variaveis is.numeric. 
@@ -43,7 +43,7 @@
   Hint: Digite numericas <- select_if(dados, is.numeric) para criar um dataset apenas com as variaveis numericas.
 
 - Class: text
-  Output: A funcao select() é usada apenas para selecao de variaveis (ou seja, colunas). Para selcionar linhas, devemos usar a funcao slice() ou a funcao filter() do pacote dplyr. 
+  Output: A funcao select() Ã© usada apenas para selecao de variaveis (ou seja, colunas). Para selcionar linhas, devemos usar a funcao slice() ou a funcao filter() do pacote dplyr. 
 
 - Class: cmd_question
   Output: Para selecionarmos ou excluirmos determinadas linhas usamos slice(), onde o numero da linhas deve ser informado. Vamos fazer uma amostra do dataset chamada x contendo apenas as linhas de 10 a 20.
@@ -58,7 +58,7 @@
   Hint: x <- slice(dados, -10:-20) vai criar um dataset que exclui linhas de 10-20 do dataset original.
 
 - Class: cmd_question
-  Output: Para filtrarmos os dados sem selecionar o numero das linhas, mas sim listando as linhas com determinada condicao, usamos a funcao filter(). Para fazer um dataset chamado *campo* contendo apenas as observacoes no tratamento 'Campo sujo'. podemos usar a função filter(dados, Tratamento == "Campo sujo"). 
+  Output: Para filtrarmos os dados sem selecionar o numero das linhas, mas sim listando as linhas com determinada condicao, usamos a funcao filter(). Para fazer um dataset chamado *campo* contendo apenas as observacoes no tratamento 'Campo sujo'. podemos usar a funÃ§Ã£o filter(dados, Tratamento == "Campo sujo"). 
   CorrectAnswer: campo <- filter(dados, Tratamento == "Campo sujo")
   AnswerTests: omnitest(correctExpr='campo <- filter(dados, Tratamento == "Campo sujo")')
   Hint: campo <- filter(dados, Tratamento == "Campo sujo") vai criar um dataset com apenas as observacoes no campo sujo.
@@ -85,7 +85,7 @@
   Output: Tambem podemos usar a funcao rename() para mudar os nomes das variaveis. Vamos mudar o nome das variaveis de acordo com o que voce quiser.
   CorrectAnswer: rename(dados, N = N., P = P..., Mg = Mg...,
                 K = K..., Ca = Ca..., Al = Al.ppm, 
-                area = `Área.média..cm².`, peso = `Peso.médio..g.`)
+                area = `Ãrea.mÃ©dia..cmÂ².`, peso = `Peso.mÃ©dio..g.`)
   AnswerTests: expr_uses_func('rename')
   Hint: Use a funcao rename() para modificar os nomes das variaveis
   
