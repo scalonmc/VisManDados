@@ -10,7 +10,7 @@
   Output: Agora ja estamos mais acostumados om o swirl! Vamos nessa aula aprender sobre manipulacao de dados utilizando o pacote tidyverse.
   
 - Class: cmd_question
-  Output: Tambem vamos usar o mesmo conjunto de dados da aula anterior, que ja deve estar carregado pra voce. Confira novamente as variaveis desse conjunto de dados com o comando ld(dados) 
+  Output: Tambem vamos usar o mesmo conjunto de dados da aula anterior, que ja deve estar carregado pra voce. Confira novamente as variaveis desse conjunto de dados com o comando ls(dados) 
   CorrectAnswer: ls(dados)
   AnswerTests: omnitest(correctExpr='ls(dados)')
   Hint: Use ls(dados) para ver a lista de variaveis do dataset.
@@ -46,7 +46,7 @@
   Output: A funcao select() é usada apenas para selecao de variaveis (ou seja, colunas). Para selcionar linhas, devemos usar a funcao slice() ou a funcao filter() do pacote dplyr. 
 
 - Class: cmd_question
-  Output: Para selecionarmos ou excluirmos determinadas linhas usamos slice(), onde o numero da linhas deve ser informado. Vamos fazer uma amostra do dataset chamada x contendo apenas as linhas de 10 a 20.
+  Output: Para selecionarmos ou excluirmos determinadas linhas usamos slice(), onde o numero da linhas deve ser informado. Vamos fazer uma amostra dos dados chamada x contendo apenas as linhas de 10 a 20.
   CorrectAnswer: x <- slice(dados, 10:20)
   AnswerTests: omnitest(correctExpr='x <- slice(dados, 10:20)')
   Hint: x <- slice(dados, 10:20) vai criar um dataset contendo apenas as linhas de 10-20 do dataset original.
@@ -67,7 +67,7 @@
   Output: A funcao filter() e equivalente a funcao subset(). Funciona exatamente da mesma forma e aceita os mesmos operadores logicos.
 
 - Class: text
-  Output: Vamos brincar um pouco com adicionar condicoes de filtragem dos dados! Utilizaremos os simbolos & para adicionar as diferentes condicoes, o simbolo != para excluir determinados valores, o == para selecioanr apenas esses valores e as operacoes matematicas > ou < para selecionar valores maiores ou menor que o desejado.
+  Output: Vamos brincar um pouco com adicionar condicoes de filtragem dos dados! Utilizaremos os simbolos & para adicionar as diferentes condicoes, o simbolo != para excluir determinados valores, o == para selecionar apenas esses valores e as operacoes matematicas > ou < para selecionar valores maiores ou menor que o desejado.
 
 - Class: cmd_question
   Output: Vamos fazer um dataset chamado *filtro* contendo apenas as observacoes no tratamento 'Campo sujo', excluindo as plantas do grupo das sempre-verdes 'S'e para as acumuladoras de Al (em que Al.ppm > 1000)
@@ -82,7 +82,7 @@
                                      Al.ppm >1000) vai criar um dataset que queremos.
 
 - Class: cmd_question
-  Output: Tambem podemos usar a funcao rename() para mudar os nomes das variaveis. Vamos mudar o nome das variaveis de acordo com o que voce quiser.
+  Output: Tambem podemos usar a funcao rename() para mudar os nomes das variaveis. Vamos mudar o nome das variaveis de acordo com o que voce quiser. Lembrando que a sintaxe da funcao rename e rename(dados, `nome que voce quer`= `nome antigo`).
   CorrectAnswer: rename(dados, N = N., P = P..., Mg = Mg...,
                 K = K..., Ca = Ca..., Al = Al.ppm, 
                 area = `Área.média..cm².`, peso = `Peso.médio..g.`)
@@ -95,6 +95,6 @@
 - Class: cmd_question
   Output: Primeiramente vamos modificar as variaveis que sao characteres para torarem-se fatores. Para isso, utilize a funcao mutate_if, criando um novo dataset chamado fator.
   CorrectAnswer: factor <- mutate_if(dados, is.character, as.factor) 
-  AnswerTests: omnitest(correctExpr='factor <- mutate_if(new, is.character, as.factor) ')
+  AnswerTests: omnitest(correctExpr='fator <- mutate_if(dados, is.character, as.factor)')
   Hint: Digite factor <- mutate_if(new, is.character, as.factor) para transformar as classes dos objetos. 
   
