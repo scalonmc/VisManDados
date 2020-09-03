@@ -126,7 +126,7 @@
   Output: PRONTOOOOO! Finalizamos as funcoes principais do DPLYR! Agora vamos ao TIDYR rapidinho! Falta pouco!
   
 - Class: cmd_question
-  Output: Utilizando o conjunto de dados media criado e o pipe, vamos: (1) criar um novo dataset chamado nitrogenio; (2) selecionar, com a funcao select(), apenas as colunas Especie, Tratamento, Grupo e N. do dataset medias, (3) utilizar a funcao spread() para organizar os valores de nitrogenio em colunas correspondentes aos tratamentos.
+  Output: Utilizando o conjunto de dados media criado e o pipe, vamos (1) criar um novo dataset chamado nitrogenio; (2) selecionar, com a funcao select(), apenas as colunas Especie, Tratamento, Grupo e N. do dataset medias, (3) utilizar a funcao spread() para organizar os valores de nitrogenio em colunas correspondentes aos tratamentos.
   CorrectAnswer: nitrogenio <- media %>% select(Espécie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)
   AnswerTests: omnitest(correctExpr='nitrogenio <- media %>% select(Espécie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)')
   Hint: nitrogenio <- media %>% select(Espécie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)
