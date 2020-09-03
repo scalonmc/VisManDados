@@ -1,6 +1,6 @@
 - Class: meta
   Course: VisManDados
-  Lesson: Aula 2
+  Lesson: Aula2
   Author: Marina C. Scalon
   Type: Standard
   Organization: UFPR - PPG Ecologia e Conservacao
@@ -100,4 +100,45 @@
   CorrectAnswer: factor <- mutate_if(dados, is.character, as.factor) 
   AnswerTests: omnitest(correctExpr='fator <- mutate_if(dados, is.character, as.factor)')
   Hint: Digite factor <- mutate_if(new, is.character, as.factor) para transformar as classes dos objetos. 
+
+- Class: cmd_question
+  Output: Agora, juntamente com a funcao recode(), podemos mudar os nomes dos fatores. Vamos mudar o nome do Tratamento "Cerrado ss" para simplesmente "Cerrado" criando um novo dataset chamado "novo". Lembre-se que temos que usar o dataset criado na questao anterior porque o Tratamento tem que estar como um fator.
+  CorrectAnswer: novo <- mutate(fator, Tratamento = recode(Tratamento, `Cerrado ss` = "Cerrado"))
+  AnswerTests: omnitest(correctExpr='novo <- mutate(fator, Tratamento = recode(Tratamento, `Cerrado ss` = "Cerrado"))')
+  Hint: Digite novo <- mutate(fator, Tratamento = recode(Tratamento, `Cerrado ss` = "Cerrado")) para mudar o nome do fator como pedido. 
   
+- Class: cmd_question
+  Output: Podemos usar a funcao mutate() assim como a funcao transform() para criar novas variaveis. Sao funcoes bem equivalentes! Vamos criar uma variavel nova chamada N_area, dividindo N por area da folha.
+  CorrectAnswer: mutate(dados, N_area = (N./`Área.média..cm².`))
+  AnswerTests: expr_uses_func('mutate')
+  Hint: mutate(dados, N_area = (N./`Área.média..cm².`)) vai criar a nova variavel N_area. 
+  
+- Class: cmd_question
+  Output: Vamos agora usar a funcao summarise(), especificamente a funcao summarise_all() para criar um conjunto de dados com os valores medios das especies chamado media. Para isso temos que usar a funcao group_by() anteriormente e determinar as colunas que nao serao alteradas (no caso, Tratamento, Grupo e Especie). Utilize o pipe %>% como demostrado em aula! Lembre-se de usar o conjunto de dados chamado *novo* como input.
+  CorrectAnswer: media <- novo %>% group_by(Espécie, Tratamento, Grupo) %>% 
+                summarise_all(mean) 
+  AnswerTests: omnitest(correctExpr='media <- novo %>% group_by(Espécie, Tratamento, Grupo) %>% 
+                summarise_all(mean)')
+  Hint: media <- novo %>% group_by(Espécie, Tratamento, Grupo) %>% 
+                summarise_all(mean) 
+                
+- Class: text
+  Output: PRONTOOOOO! Finalizamos as funcoes principais do DPLYR! Agora vamos ao TIDYR rapidinho! Falta pouco!
+  
+- Class: cmd_question
+  Output: Utilizando o conjunto de dados media criado e o pipe, vamos: (1) criar um novo dataset chamado nitrogenio; (2) selecionar, com a funcao select(), apenas as colunas Especie, Tratamento, Grupo e N. do dataset medias, (3) utilizar a funcao spread() para organizar os valores de nitrogenio em colunas correspondentes aos tratamentos.
+  CorrectAnswer: nitrogenio <- media %>% select(Espécie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)
+  AnswerTests: omnitest(correctExpr='nitrogenio <- media %>% select(Espécie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)')
+  Hint: nitrogenio <- media %>% select(Espécie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)
+                  
+- Class: cmd_question
+  Output: Com a funcao gather() vamos voltar atras e desfazer isso que fizemos, tornando os tratamentos fatores novamente.
+  CorrectAnswer: nitrogenio %>% gather("Tratamento", "N.", 3:5)  
+  AnswerTests: expr_uses_func('gather')
+  Hint: nitrogenio %>% gather("Tratamento", "N.", 3:5)  
+  
+- Class: text
+  Output: Ainda temos as funcoes unite e separate do pacote tidyr. Elas podem ser aplicadas em variaveis categoricas apenas e servem para unir ou separar condicionalmente os fatores.
+  
+- Class: text
+  Output: Finalizamos por aqui! Qualquer duvida maior anote para conversarmos durante nossos encontros! 
