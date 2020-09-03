@@ -90,6 +90,9 @@
   Hint: Use a funcao rename() para modificar os nomes das variaveis
   
 - Class: text
+  Output: Essa questao anterior foi do tipo aberta! Voce podia nomear os dados como quiser e modificar os nomes das variaveis como voce preferir, desde que a funcao rename fosse usada.
+  
+- Class: text
   Output: Vamos agora testar as multiplas utilidades da funcao *mutate()*. Mutate pode ser usada para transformar classes de objetos, mudar nomes das variaveis ou fatores e criar novas variaveis.
   
 - Class: cmd_question
