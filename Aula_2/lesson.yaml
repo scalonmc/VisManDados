@@ -43,7 +43,7 @@
   Hint: Digite numericas <- select_if(dados, is.numeric) para criar um dataset apenas com as variaveis numericas.
 
 - Class: text
-  Output: A funcao select() é usada apenas para selecao de variaveis (ou seja, colunas). Para selcionar linhas, devemos usar a funcao slice() ou a funcao filter() do pacote dplyr. 
+  Output: A funcao select() é usada apenas para selecao de variaveis (ou seja, colunas). Para selecionar linhas, devemos usar a funcao slice() ou a funcao filter() do pacote dplyr. 
 
 - Class: cmd_question
   Output: Para selecionarmos ou excluirmos determinadas linhas usamos slice(), onde o numero da linhas deve ser informado. Vamos fazer uma amostra dos dados chamada x contendo apenas as linhas de 10 a 20.
@@ -53,9 +53,9 @@
   
 - Class: cmd_question
   Output: Agora para excluirmos determinadas linhas usamos slice() vamos fazer uma amostra do dataset chamada y excluindo as linhas de 10 a 20.
-  CorrectAnswer: x <- slice(dados, -10:-20)
-  AnswerTests: omnitest(correctExpr='x <- slice(dados, -10:-20)')
-  Hint: x <- slice(dados, -10:-20) vai criar um dataset que exclui linhas de 10-20 do dataset original.
+  CorrectAnswer: y <- slice(dados, -10:-20)
+  AnswerTests: omnitest(correctExpr='y <- slice(dados, -10:-20)')
+  Hint: y <- slice(dados, -10:-20) vai criar um dataset que exclui linhas de 10-20 do dataset original.
 
 - Class: cmd_question
   Output: Para filtrarmos os dados sem selecionar o numero das linhas, mas sim listando as linhas com determinada condicao, usamos a funcao filter(). Para fazer um dataset chamado *campo* contendo apenas as observacoes no tratamento 'Campo sujo'. podemos usar a função filter(dados, Tratamento == "Campo sujo"). 
@@ -108,13 +108,13 @@
   Hint: Digite novo <- mutate(fator, Tratamento = recode(Tratamento, `Cerrado ss` = "Cerrado")) para mudar o nome do fator como pedido. 
   
 - Class: cmd_question
-  Output: Podemos usar a funcao mutate() assim como a funcao transform() para criar novas variaveis. Sao funcoes bem equivalentes! Vamos criar uma variavel nova chamada N_area, dividindo N por area da folha.
-  CorrectAnswer: mutate(dados, N_area = (N./`Área.média..cm².`))
+  Output: Podemos usar a funcao mutate() assim como a funcao transform() para criar novas variaveis. Sao funcoes bem equivalentes! Vamos usar mutate() para criar uma variavel nova chamada NP, dividindo N por P.
+  CorrectAnswer: mutate(dados, N_area = (N./P...))
   AnswerTests: expr_uses_func('mutate')
-  Hint: mutate(dados, N_area = (N./`Área.média..cm².`)) vai criar a nova variavel N_area. 
+  Hint: mutate(dados, N_area = (N./P...)) vai criar a nova variavel N_area. 
   
 - Class: cmd_question
-  Output: Vamos agora usar a funcao summarise(), especificamente a funcao summarise_all() para criar um conjunto de dados com os valores medios das especies chamado media. Para isso temos que usar a funcao group_by() anteriormente e determinar as colunas que nao serao alteradas (no caso, Tratamento, Grupo e Especie). Utilize o pipe %>% como demostrado em aula! Lembre-se de usar o conjunto de dados chamado *novo* como input.
+  Output: Vamos agora usar a funcao summarise(), especificamente a funcao summarise_all() para criar um conjunto de dados com os valores medios das especies chamado media. Para isso temos que usar a funcao group_by() anteriormente e determinar as colunas que nao serao alteradas (no caso, Especie, Tratamento e Grupo). Utilize o pipe %>% como demostrado em aula! Lembre-se de usar o conjunto de dados chamado *novo* como input.
   CorrectAnswer: media <- novo %>% group_by(Espécie, Tratamento, Grupo) %>% 
                 summarise_all(mean) 
   AnswerTests: omnitest(correctExpr='media <- novo %>% group_by(Espécie, Tratamento, Grupo) %>% 
