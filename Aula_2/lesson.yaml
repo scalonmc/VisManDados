@@ -26,15 +26,15 @@
 
 - Class: cmd_question
   Output: Uma funcao do dplyr bem util e a funcao select(). Com ela voce pode escolher variaveis de interesse para determinada analise ou grafico. Vamos escolher, utilizando a funcao *select*, apenas as variaveis categoricas do nosso conjunto de dados em um novo dataset chamado *categoricas*.
-  CorrectAnswer: categoricas <- select(dados, Tratamento, Espécie, Grupo)
-  AnswerTests: omnitest(correctExpr='categoricas <- select(dados, Tratamento, Espécie, Grupo)')
-  Hint: categoricas <- select(dados, Tratamento, Espécie, Grupo) vai criar um conjunto de dados apenas com as variaveis categoricas.
+  CorrectAnswer: categoricas <- select(dados, Tratamento, Especie, Grupo)
+  AnswerTests: omnitest(correctExpr='categoricas <- select(dados, Tratamento, Especie, Grupo)')
+  Hint: categoricas <- select(dados, Tratamento, Especie, Grupo) vai criar um conjunto de dados apenas com as variaveis categoricas.
 
 - Class: cmd_question
   Output: A funcao select() tambem nos permite eliminar determinadas variaveis. Para isso, basta listar as variaveis indesejadas com o sinal - na frente. Por exemplo, para eliminar variaveis que nao representam muito, como Amostra e Individuo, vamos criar um novo dataset denominado *clean* sem essas variaveis. 
-  CorrectAnswer: clean <- select(dados, -Amostra, -Indivíduo)
-  AnswerTests: omnitest(correctExpr='clean <- select(dados, -Amostra, -Indivíduo)')
-  Hint: Digite clean <- select(dados, -Amostra, -Indivíduo) para criar um dataset sem as variáveis Amostra e Individuo.
+  CorrectAnswer: clean <- select(dados, -Amostra, -Individuo)
+  AnswerTests: omnitest(correctExpr='clean <- select(dados, -Amostra, -Individuo)')
+  Hint: Digite clean <- select(dados, -Amostra, -Individuo) para criar um dataset sem as variáveis Amostra e Individuo.
   
 - Class: cmd_question
   Output: Voce tambem pode usar uma condicao com a funcao select_if() para determinar uma selecao especifica de algumas variaveis. Por exemplo, vamos criar um novo dataset denominado *numericas* que selecione apenas as variaveis numericas usando o condicional select_if para apenas as variaveis is.numeric. 
@@ -84,8 +84,7 @@
 - Class: cmd_question
   Output: Tambem podemos usar a funcao rename() para mudar os nomes das variaveis. Vamos mudar o nome das variaveis de acordo com o que voce quiser. Lembrando que a sintaxe da funcao rename e rename(dados, `nome que voce quer`= `nome antigo`).
   CorrectAnswer: rename(dados, N = N., P = P..., Mg = Mg...,
-                K = K..., Ca = Ca..., Al = Al.ppm, 
-                area = `Área.média..cm².`, peso = `Peso.médio..g.`)
+                K = K..., Ca = Ca..., Al = Al.ppm)
   AnswerTests: expr_uses_func('rename')
   Hint: Use a funcao rename() para modificar os nomes das variaveis
   
@@ -115,11 +114,11 @@
   
 - Class: cmd_question
   Output: Vamos agora usar a funcao summarise(), especificamente a funcao summarise_all() para criar um conjunto de dados com os valores medios das especies chamado media. Para isso temos que usar a funcao group_by() anteriormente e determinar as colunas que nao serao alteradas (no caso, Especie, Tratamento e Grupo). Utilize o pipe %>% como demostrado em aula! Lembre-se de usar o conjunto de dados chamado *novo* como input.
-  CorrectAnswer: media <- novo %>% group_by(Espécie, Tratamento, Grupo) %>% 
+  CorrectAnswer: media <- novo %>% group_by(Especie, Tratamento, Grupo) %>% 
                 summarise_all(mean) 
-  AnswerTests: omnitest(correctExpr='media <- novo %>% group_by(Espécie, Tratamento, Grupo) %>% 
+  AnswerTests: omnitest(correctExpr='media <- novo %>% group_by(Especie, Tratamento, Grupo) %>% 
                 summarise_all(mean)')
-  Hint: media <- novo %>% group_by(Espécie, Tratamento, Grupo) %>% 
+  Hint: media <- novo %>% group_by(Especie, Tratamento, Grupo) %>% 
                 summarise_all(mean) 
                 
 - Class: text
@@ -127,9 +126,9 @@
   
 - Class: cmd_question
   Output: Utilizando o conjunto de dados media criado e o pipe, vamos (1) criar um novo dataset chamado nitrogenio; (2) selecionar, com a funcao select(), apenas as colunas Especie, Tratamento, Grupo e N. do dataset medias, (3) utilizar a funcao spread() para organizar os valores de nitrogenio em colunas correspondentes aos tratamentos.
-  CorrectAnswer: nitrogenio <- media %>% select(Espécie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)
-  AnswerTests: omnitest(correctExpr='nitrogenio <- media %>% select(Espécie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)')
-  Hint: nitrogenio <- media %>% select(Espécie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)
+  CorrectAnswer: nitrogenio <- media %>% select(Especie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)
+  AnswerTests: omnitest(correctExpr='nitrogenio <- media %>% select(Especie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)')
+  Hint: nitrogenio <- media %>% select(Especie, Tratamento, Grupo, N.) %>% spread(Tratamento, N.)
                   
 - Class: cmd_question
   Output: Com a funcao gather() vamos voltar atras e desfazer isso que fizemos, tornando os tratamentos fatores novamente.
