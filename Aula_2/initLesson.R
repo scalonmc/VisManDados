@@ -1,8 +1,2 @@
-# Code placed in this file fill be executed every time the
-      # lesson is started. Any variables created here will show up in
-      # the user's working directory and thus be accessible to them
-      # throughout the lesson.
-
-
-# Read in data
-dados <- read.csv("dados.csv")
+require(RCurl)
+dados <- read.csv(text = getURL("https://raw.githubusercontent.com/scalonmc/Aula1/master/Aula1/dados.csv"))
