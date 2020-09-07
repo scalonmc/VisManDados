@@ -1,4 +1,4 @@
-Amostra,Tratamento,Especie,Grupo,Individuo,N,"P, %","Mg, %","K, %","Ca, %",Al ppm ,area,peso
+Amostra,Tratamento,Especie,Grupo,Individuo,"N%","P, %","Mg, %","K, %","Ca, %",Al ppm ,area,peso
 1,Cerradao,AT,D,1,2.356,0.1143,0.1497,1.197,0.3188,122.8,287.7639,3.6336
 2,Cerradao,AT,D,2,2.073,0.1143,0.1797,1.444,0.4126,251.8,262.0324,2.4914
 3,Cerradao,AT,D,3,2.026,0.1214,0.1332,0.366,0.3712,206.5,183.8777,2.1648
