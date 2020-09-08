@@ -96,9 +96,9 @@
   
 - Class: cmd_question
   Output: Primeiramente vamos modificar as variaveis que sao characteres para torarem-se fatores. Para isso, utilize a funcao mutate_if, criando um novo dataset chamado fator.
-  CorrectAnswer: factor <- mutate_if(dados, is.character, as.factor) 
+  CorrectAnswer: fator <- mutate_if(dados, is.character, as.factor) 
   AnswerTests: omnitest(correctExpr='fator <- mutate_if(dados, is.character, as.factor)')
-  Hint: Digite factor <- mutate_if(new, is.character, as.factor) para transformar as classes dos objetos. 
+  Hint: Digite fator <- mutate_if(dados, is.character, as.factor) para transformar as classes dos objetos. 
 
 - Class: cmd_question
   Output: Agora, juntamente com a funcao recode(), podemos mudar os nomes dos fatores. Vamos mudar o nome do Tratamento "Cerrado ss" para simplesmente "Cerrado" criando um novo dataset chamado "novo". Lembre-se que temos que usar o dataset criado na questao anterior porque o Tratamento tem que estar como um fator.
