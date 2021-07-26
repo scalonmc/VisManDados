@@ -7,7 +7,7 @@
   Version: 2.0
   
 - Class: text
-  Output: Bem vindos ao curso de R avançado: manipulacao de dados e criacao de graficos e mapas! Infelizmente esse formato nao permite acentuacao, entao vamos ter que lidar com isso...
+  Output: Bem vindos ao curso de R avancado: manipulacao de dados e criacao de graficos e mapas! Infelizmente esse formato nao permite acentuacao, entao vamos ter que lidar com isso...
   
 - Class: text
   Output: Novidade pra voce? Basta digitar esc para sair, skip() para pular alguma pergunta, play() para usar o console e experimentar sem a interferencia do programa e info() para mostrar um menu de ajuda.
