@@ -1,2 +1,2 @@
-require(RCurl)
-dados <- read.csv(getURL("https://raw.githubusercontent.com/scalonmc/Aula1/master/Aula1/dados.csv"))
+require(rjson)
+dados <- fromJSON("https://raw.githubusercontent.com/scalonmc/Aula1/master/Aula1/dados.csv")
