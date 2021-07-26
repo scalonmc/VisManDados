@@ -60,13 +60,13 @@
   AnswerTests: omnitest(correctExpr='dados$especie <- as.factor(dados$especie)')
   Hint: dados$especie <- as.factor(dados$especie) vai modificar a variavel especie de character para fator.
   
-  - Class: cmd_question
+- Class: cmd_question
   Output: Agora aplique a funcao summary() novamente e veja a mudanca na variavel especie. 
   CorrectAnswer: summary(dados)
   AnswerTests: omnitest(correctExpr='summary(dados)')
   Hint: Digite summary(dados) para verificar a natureza de cada variavel, distribuicao e dados faltantes.
   
-  - Class: text
+- Class: text
   Output: Para variaveis categoricas ('factor'), summary() mostra o numero de vezes que esse valor ou nivel aparece. 
 
 - Class: cmd_question
