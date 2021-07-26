@@ -10,7 +10,7 @@
   Output: Bem vindos ao curso de R avançado: manipulação de dados e criação de gráficos e mapas! Infelizmente esse formato nao permite acentuacao, entao vamos ter que lidar com isso...
   
 - Class: text
-  Output: Novidade pra voce? Basta digitar bye() para sair, skip() para pular alguma pergunta, play() para usar o console e experimentar sem a interferencia do programa e info() para mostrar um menu de ajuda.
+  Output: Novidade pra voce? Basta digitar esc para sair, skip() para pular alguma pergunta, play() para usar o console e experimentar sem a interferencia do programa e info() para mostrar um menu de ajuda.
   
 - Class: text
   Output: Em caso de alguma duvida e nao conseguir prosseguir com a Aula 1, entre em contato no forum de discussao criado ou por email particular lembrando que essa e uma experiencia nova pra todos nos! =)
